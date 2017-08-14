@@ -1,2 +1,3 @@
-public class tictactoe {
+public class tictactoe extends Main{
+
 }
