@@ -5,6 +5,7 @@ public class tictactoe extends Main{
 
     private char[][] board;
     private char playerMark;
+    int x, y;
 
     public tictactoe() {
         board = new char[3][3];
@@ -56,15 +57,32 @@ public class tictactoe extends Main{
         }
         return  boardIsFull;
     }
-    public static int userInput(){
+    public char  userInput(){
+        
+
         System.out.println("Please, provide the x coordinate: ");
         Scanner userInputx = new Scanner(System.in);
+        try {
+
+            if (x-1 <= 0 &&  x-1 >= 3) {
+                System.out.println("Please, provide valid coordinates!");
+
+            }
+
+        }
         int x = userInputx.nextInt();
         System.out.println("Please, provide the y coordinate: ");
         Scanner userInputy = new Scanner(System.in);
         int y = userInputy.nextInt();
 
-        r
+
+        return board[x][y];
+
+    }
+
+    public boolean playerTurn(int x, int y) {
+        if (x> 0)
+
     }
 
 }
