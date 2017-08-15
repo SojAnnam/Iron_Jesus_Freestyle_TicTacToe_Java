@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 
 public class tictactoe extends Main{
 
@@ -57,34 +57,43 @@ public class tictactoe extends Main{
         }
         return  boardIsFull;
     }
-    public char  userInput(){
-        
+    public void userInput(){
 
-        System.out.println("Please, provide the x coordinate: ");
-        Scanner userInputx = new Scanner(System.in);
-        try {
+            System.out.println("Please, provide the x coordinate: ");
+            Scanner userInputx = new Scanner(System.in);
+            int x = userInputx.nextInt();
 
-            if (x-1 <= 0 &&  x-1 >= 3) {
-                System.out.println("Please, provide valid coordinates!");
+            if (x-1 >= 0 &&  x-1 <= 2) {
 
+                System.out.println("Please, provide the y coordinate: ");
+                Scanner userInputy = new Scanner(System.in);
+                int y = userInputy.nextInt();
+
+                if (y-1 >= 0 &&  y-1 <= 2) {
+
+                    //jelenítse meg a playerMarkkal a táblát
+
+                } else {
+
+                    userInput();
+
+                }
+
+            } else {
+                userInput();
             }
 
-        }
-        int x = userInputx.nextInt();
-        System.out.println("Please, provide the y coordinate: ");
-        Scanner userInputy = new Scanner(System.in);
-        int y = userInputy.nextInt();
 
-
-        return board[x][y];
+        //return board[x][y];
 
     }
 
+    /*
     public boolean playerTurn(int x, int y) {
         if (x> 0)
 
     }
-
+    */
 }
 
 
