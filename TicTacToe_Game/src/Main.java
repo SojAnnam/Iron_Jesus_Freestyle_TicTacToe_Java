@@ -5,6 +5,7 @@ public class Main {
         tictactoe tic = new tictactoe();
 
         tic.printBoard();
+        System.out.println(tic.boardFull());
 
     }
 }
