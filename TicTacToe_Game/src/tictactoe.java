@@ -1,15 +1,15 @@
 import java.util.Scanner;
-import java.util.InputMismatchException;
+import java.util.ArrayList;
 
 public class tictactoe extends Main{
 
     private char[][] board;
-    private char playerMark;
+    private char playerChar;
     int x, y;
 
     public tictactoe() {
         board = new char[3][3];
-        playerMark = 'x';
+        playerChar = 'x';
         emptyBoardTable();
     }
 
@@ -57,31 +57,55 @@ public class tictactoe extends Main{
         }
         return  boardIsFull;
     }
-    public void userInput(){
+    public int[] userInput() {
 
-            System.out.println("Please, provide the x coordinate: ");
-            Scanner userInputx = new Scanner(System.in);
-            int x = userInputx.nextInt();
+        System.out.println("Please, provide the x coordinate: ");
+        Scanner userInputx = new Scanner(System.in);
+        int x = userInputx.nextInt();
 
-            if (x-1 >= 0 &&  x-1 <= 2) {
+        if (x - 1 >= 0 && x - 1 <= 2) {
 
-                System.out.println("Please, provide the y coordinate: ");
-                Scanner userInputy = new Scanner(System.in);
-                int y = userInputy.nextInt();
+            System.out.println("Please, provide the y coordinate: ");
+            Scanner userInputy = new Scanner(System.in);
+            int y = userInputy.nextInt();
 
-                if (y-1 >= 0 &&  y-1 <= 2) {
 
-                    //jelenítse meg a playerMarkkal a táblát
+            if (y - 1 >= 0 && y - 1 <= 2) {
 
-                } else {
-
-                    userInput();
-
-                }
+                return new int[]{x-1,y-1};
+                //jelenítse meg a playerMarkkal a táblát
 
             } else {
+
                 userInput();
+
             }
+
+        } else {
+            userInput();
+        }
+        return new int[]{x-1,y-1};
+    }
+    /*public int[] userInput() {
+        try {
+            System.out.println("Please, provide the x coordinate: ");
+            Scanner userInputx = new Scanner(System.in);
+            int y = userInputx.nextInt();
+
+            if (y - 1 >= 0 && y - 1 <= 2) {
+
+                return new int[]{y - 1};
+            }
+        } catch (){
+
+        }
+    }*/
+
+
+    public void placeChar(int row, int col) {
+        if (board[row][col] == ' ') {
+            board[row][col] = playerChar ;
+        }
 
 
         //return board[x][y];
