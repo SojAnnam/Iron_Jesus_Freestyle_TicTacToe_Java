@@ -6,7 +6,8 @@ public class Main {
 
         tic.printBoard();
         System.out.println(tic.boardFull());
-        tic.userInput();
+        int[] ret = tic.userInput();
+        tic.placeChar(ret[0] ,ret[1]);
         tic.printBoard();
 
     }
