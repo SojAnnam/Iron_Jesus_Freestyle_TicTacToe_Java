@@ -85,6 +85,7 @@ public class tictactoe extends Main{
                 }
                 else{
 
+                    System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
                     corr = false;
                 }
 
