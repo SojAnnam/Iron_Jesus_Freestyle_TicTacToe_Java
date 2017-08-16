@@ -68,7 +68,7 @@ public class tictactoe extends Main{
         int userInputX = 0;
         int userInputY = 0;
 
-        while (corr = true) {
+        while (corr != true) {
             System.out.println("Please, provide the x and y coordinates: ");
             Scanner inputX = new Scanner(System.in);
             Scanner inputY = new Scanner(System.in);
@@ -76,12 +76,15 @@ public class tictactoe extends Main{
 
                 userInputX = inputX.nextInt();
                 userInputY = inputX.nextInt();
+
                 if (userInputX- 1 >= 0 && userInputX - 1 <= 2 && userInputY- 1 >= 0 && userInputY - 1 <= 2) {
+
                     userInputs.add(userInputX);
                     userInputs.add(userInputY);
                     corr = true;
                 }
                 else{
+
                     corr = false;
                 }
 
