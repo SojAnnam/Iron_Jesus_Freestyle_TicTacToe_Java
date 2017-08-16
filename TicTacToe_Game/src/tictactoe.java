@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -59,50 +60,51 @@ public class tictactoe extends Main{
         }
         return  boardIsFull;
     }
-    public int[] userInputs() {
+    public ArrayList<Integer> userInputs() {
 
         boolean corr = false;
-        int[] userInputs = new int[2];
+        ArrayList<Integer> userInputs = new ArrayList<>();
+        userInputs.clear();
+        int userInputX = 0;
+        int userInputY = 0;
 
         while (corr = true) {
             System.out.println("Please, provide the x and y coordinates: ");
-            Scanner inputs = new Scanner(System.in);
+            Scanner inputX = new Scanner(System.in);
+            Scanner inputY = new Scanner(System.in);
             try {
-            for (int i = 0; i < 2; i++) {
 
-                userInputs[i] = inputs.nextInt();
-            }
+                userInputX = inputX.nextInt();
+                userInputY = inputX.nextInt();
+                if (userInputX- 1 >= 0 && userInputX - 1 <= 2 && userInputY- 1 >= 0 && userInputY - 1 <= 2) {
+                    userInputs.add(userInputX);
+                    userInputs.add(userInputY);
+                    corr = true;
+                }
+                else{
+                    corr = false;
+                }
 
-
-
-                for (int i = 0; i < 2; i++) {
-
-                    if (userInputs[i] - 1 >= 0 && userInputs[i] - 1 <= 2) {
-
-                        corr = true;
-                        return userInputs;
-
-
-                    }
                     /*else {
 
                         System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
                         corr = false;
                     } */
-                }
             }
-            catch (InputMismatchException ime) {
+            /*catch (InputMismatchException ime) {
 
                 System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
                 corr = false;
 
-            }
+            }*/
             catch (Exception e) {
 
                 System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
                 corr = false;
 
             }
+
+
         }
 
         return userInputs;
@@ -124,10 +126,11 @@ public class tictactoe extends Main{
     }*/
 
 
-    public void placeChar(int row, int col) {
+    public void  placeChar(List<Integer> returnList) {
+
         try {
-            if (board[row][col] == ' ') {
-                board[row][col] = playerChar;
+            if (board[returnList.get(0)-1][returnList.get(1)-1] == ' ') {
+                board[returnList.get(0)-1][returnList.get(1)-1] = playerChar;
             }
         }
 
