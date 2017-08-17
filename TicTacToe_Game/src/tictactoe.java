@@ -115,33 +115,40 @@ public class tictactoe extends Main{
     public void  placeChar(List<Integer> returnList) {
 
         try {
-            if (board[returnList.get(0)-1][returnList.get(1)-1] == ' ') {
-                board[returnList.get(0)-1][returnList.get(1)-1] = playerChar;
-
-                if (playerChar == 'x') {
-
-                    playerChar = 'o';
-
-                } else {
-
-                    playerChar = 'x';
-
-
-                    }
-
-                userInputs();
-
-                }
-
+            if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
+                board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
             }
+        }
 
         catch (ArrayIndexOutOfBoundsException ei) {
 
-                userInputs();
-            }
+            userInputs();
+        }
+
+        while (boardIsFull = false) {
+
+        if (playerChar == 'x') {
+
+            playerChar = 'o';
+
+        } else {
+
+            playerChar = 'x';
+
+
+                }
+    }
+
+        userInputs();
 
     }
+
+
+
+
+
 }
+
 
 
 
