@@ -4,14 +4,14 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-public class tictactoe extends Main{
+public class ticTacToe extends Main{
 
     public char[][] board;
     public char playerChar;
     int x, y;
     boolean boardIsFull;
 
-    public tictactoe() {
+    public ticTacToe() {
         board = new char[3][3];
         playerChar = 'x';
         emptyBoardTable();

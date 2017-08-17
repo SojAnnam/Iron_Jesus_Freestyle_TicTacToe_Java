@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        tictactoe tic = new tictactoe();
+        ticTacToe tic = new ticTacToe();
 
         while (tic.boardIsFull != true) {
 
