@@ -75,7 +75,7 @@ public class tictactoe extends Main{
             try {
 
                 userInputX = inputX.nextInt();
-                userInputY = inputX.nextInt();
+                userInputY = inputY.nextInt();
 
                 if (userInputX- 1 >= 0 && userInputX - 1 <= 2 && userInputY- 1 >= 0 && userInputY - 1 <= 2) {
 
@@ -85,7 +85,7 @@ public class tictactoe extends Main{
                 }
                 else{
 
-                    System.out.println("Please provide a NUMBER between 1 and 3!");
+                    System.out.println("Please provide two NUMBERS between 1 and 3!");
                     corr = false;
                 }
 
@@ -94,7 +94,7 @@ public class tictactoe extends Main{
 
             catch (Exception e) {
 
-                System.out.println("Please provide a NUMBER between 1 and 3!");
+                System.out.println("Please provide two NUMBERS between 1 and 3!");
                 corr = false;
 
             }
