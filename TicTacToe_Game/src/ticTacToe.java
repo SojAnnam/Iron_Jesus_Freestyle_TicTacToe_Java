@@ -147,7 +147,6 @@ public class ticTacToe extends Main{
 
         for (char[] row : board) {
             if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
-                System.out.println("sor");
                 return true;
             }
         }
@@ -162,19 +161,15 @@ public class ticTacToe extends Main{
 
         for (int i = 0; i < 3; i++) {
             if (markCheck.get(i) == markCheck.get(i+3) && markCheck.get(i+3) == markCheck.get(i+6) && markCheck.get(i) != ' ') {
-                System.out.println("oszlop");
                 return true;
             }
         }
 
         if (markCheck.get(0) == markCheck.get(4) && markCheck.get(8) == markCheck.get(4) && markCheck.get(0) != ' ') {
-            System.out.println("diag1");
             return true;
         }
 
         if  (markCheck.get(2) == markCheck.get(4) && markCheck.get(6) == markCheck.get(4) && markCheck.get(2) != ' ') {
-            System.out.println("diag2");
-            System.out.println(markCheck);
             return true;
         }
 

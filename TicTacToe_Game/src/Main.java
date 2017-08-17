@@ -13,13 +13,10 @@ public class Main {
         while (isFull != true && isWin != true) {
             tic.markCheck.clear();
             tic.printBoard();
-            System.out.println(tic.boardFull());
             List returnList = tic.userInputs();
             tic.placeChar(returnList);
             isFull = tic.boardFull();
-            System.out.println("F" + isFull);
             isWin = tic.winCheck();
-            System.out.println("W" + isWin);
 
 
 
@@ -34,7 +31,6 @@ public class Main {
                 System.out.println("Player Two won.");
                 System.exit(0);
             }
-            System.out.println(tic.winCheck());
 
 
         }
