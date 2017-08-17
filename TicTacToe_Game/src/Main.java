@@ -8,6 +8,7 @@ public class Main {
         tictactoe tic = new tictactoe();
 
         while (tic.boardIsFull != true) {
+
             tic.printBoard();
             System.out.println(tic.boardFull());
             List returnList = tic.userInputs();
