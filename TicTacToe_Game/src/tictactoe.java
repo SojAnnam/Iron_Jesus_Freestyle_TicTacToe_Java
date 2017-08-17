@@ -112,20 +112,19 @@ public class tictactoe extends Main{
     }
 
 
-    public void  placeChar(List<Integer> returnList) {
+    public char  placeChar(List<Integer> returnList) {
 
         try {
             if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
                 board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
             }
+
         }
 
         catch (ArrayIndexOutOfBoundsException ei) {
 
             userInputs();
         }
-
-        while (boardIsFull = false) {
 
         if (playerChar == 'x') {
 
@@ -137,9 +136,9 @@ public class tictactoe extends Main{
 
 
                 }
-    }
 
-        userInputs();
+
+        return playerChar;
 
     }
 
