@@ -8,9 +8,11 @@ public class ticTacToe extends Main{
     private char[][] board;
     public char playerChar;
     int x, y;
-
+    String name1;
+    String name2;
     String userInput;
     ArrayList<Character> markCheck = new ArrayList<>();
+    ArrayList<String> names = new ArrayList<>();
 
     public ticTacToe() {
         board = new char[3][3];
@@ -48,6 +50,19 @@ public class ticTacToe extends Main{
 
         }
     }
+
+    public void getNames() {
+        System.out.println("Player One, please add your name:");
+        Scanner inputString = new Scanner(System.in);
+        name1 = inputString.next();
+        System.out.println("Player Two, please add your name:");
+        Scanner inputString2 = new Scanner(System.in);
+        name2 = inputString2.next();
+
+        names.add(name1);
+        names.add(name2);
+    }
+
 
     public boolean boardFull() {
 
