@@ -5,18 +5,19 @@ import java.util.ArrayList;
 
 public class ticTacToe extends Main{
 
-    public char[][] board;
+    private char[][] board;
     public char playerChar;
     int x, y;
-    boolean boardIsFull;
+    String name1;
+    String name2;
     String userInput;
     ArrayList<Character> markCheck = new ArrayList<>();
+    ArrayList<String> names = new ArrayList<>();
 
     public ticTacToe() {
         board = new char[3][3];
         playerChar = 'x';
         emptyBoardTable();
-        boardIsFull = false;
     }
 
     public void emptyBoardTable() {
@@ -28,24 +29,7 @@ public class ticTacToe extends Main{
         }
     }
 
-    public boolean nextGame() {
 
-        System.out.println("Would you like to play another game (y or n)?");
-        Scanner inputString = new Scanner(System.in);
-        userInput = inputString.next();
-
-        if (userInput.toLowerCase() != "y") {
-
-            System.out.println("Thank you very much for playing!");
-            return false;
-
-        } else {
-
-           return true;
-
-        }
-
-    }
 
     public void printBoard() {
 
@@ -67,23 +51,30 @@ public class ticTacToe extends Main{
         }
     }
 
-    public boolean boardFull() {
+    public void getNames() {
+        System.out.println("Player One, please add your name:");
+        Scanner inputString = new Scanner(System.in);
+        name1 = inputString.next();
+        System.out.println("Player Two, please add your name:");
+        Scanner inputString2 = new Scanner(System.in);
+        name2 = inputString2.next();
 
+        names.add(name1);
+        names.add(name2);
+    }
+
+
+    public boolean boardFull() {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
-
-                    boardIsFull = false;
-                    return boardIsFull;
-
+                    return false ;
                 }
             }
-
-            boardIsFull = true;
         }
 
-        return  boardIsFull;
+        return  true;
     }
 
 
@@ -138,26 +129,25 @@ public class ticTacToe extends Main{
         try {
             if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
                 board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
+                if (playerChar == 'x') {
+
+                    playerChar = 'o';
+
+                } else {
+
+                    playerChar = 'x';
+
+
+                }
             }
 
         }
 
         catch (ArrayIndexOutOfBoundsException ei) {
 
+            System.out.println("Try again, this field already in use! ");
             userInputs();
         }
-
-        if (playerChar == 'x') {
-
-            playerChar = 'o';
-
-        } else {
-
-            playerChar = 'x';
-
-
-                }
-
 
         return playerChar;
 
@@ -194,6 +184,24 @@ public class ticTacToe extends Main{
         }
 
         return false;
+    }
+
+    public boolean nextGame() {
+
+        System.out.println("Would you like to play another game (y or n)?");
+        Scanner inputString = new Scanner(System.in);
+        userInput = inputString.next().toLowerCase();
+        System.out.println(userInput);
+        if (userInput.equals("n")) {
+            System.out.println("Thank you very much for playing!");
+            return false;
+
+        } else {
+
+            return true;
+
+        }
+
     }
 }
 

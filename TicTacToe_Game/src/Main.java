@@ -7,22 +7,20 @@ public class Main {
     public static void main(String[] args) {
 
         ticTacToe tic = new ticTacToe();
-
-
         boolean isNewGame = true;
 
-        while (isNewGame == true) {
-
+        while (isNewGame) {
+            System.out.flush();
             boolean isFull = false;
             boolean isWin = false;
             tic.playerChar = 'x';
-
             tic.emptyBoardTable();
+            tic.getNames();
             System.out.println("Welcome to TicTacToe! Let's start the game!");
 
 
             while (isFull != true && isWin != true) {
-
+                System.out.flush();
                 tic.markCheck.clear();
                 tic.printBoard();
                 List returnList = tic.userInputs();
@@ -37,11 +35,13 @@ public class Main {
 
                 tic.printBoard();
                 if (tic.playerChar == 'o') {
-                    System.out.println("Player One won.");
+                    System.out.println(tic.names.get(0) + " won.");
+                    tic.emptyBoardTable();
                     isNewGame = tic.nextGame();
 
                 } else if (tic.playerChar == 'x') {
-                    System.out.println("Player Two won.");
+                    System.out.println(tic.names.get(1) + " won.");
+                    tic.emptyBoardTable();
                     isNewGame = tic.nextGame();
 
                 }
@@ -49,7 +49,7 @@ public class Main {
 
             }
 
-            if (tic.boardIsFull == true) {
+            if (isFull && !isWin) {
                 tic.printBoard();
                 System.out.println("The match ends in a draw!");
                 isNewGame = tic.nextGame();
