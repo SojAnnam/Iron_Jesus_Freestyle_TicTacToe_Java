@@ -10,7 +10,7 @@ public class Main {
         boolean isNewGame = true;
 
         while (isNewGame) {
-
+            System.out.flush();
             boolean isFull = false;
             boolean isWin = false;
             tic.emptyBoardTable();
@@ -18,7 +18,7 @@ public class Main {
 
 
             while (isFull != true && isWin != true) {
-                
+                System.out.flush();
                 tic.markCheck.clear();
                 tic.printBoard();
                 List returnList = tic.userInputs();

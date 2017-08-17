@@ -130,26 +130,25 @@ public class ticTacToe extends Main{
         try {
             if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
                 board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
+                if (playerChar == 'x') {
+
+                    playerChar = 'o';
+
+                } else {
+
+                    playerChar = 'x';
+
+
+                }
             }
 
         }
 
         catch (ArrayIndexOutOfBoundsException ei) {
 
+            System.out.println("Try again, this field already in use! ");
             userInputs();
         }
-
-        if (playerChar == 'x') {
-
-            playerChar = 'o';
-
-        } else {
-
-            playerChar = 'x';
-
-
-                }
-
 
         return playerChar;
 
