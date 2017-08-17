@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class ticTacToe extends Main{
 
-    public char[][] board;
+    private char[][] board;
     public char playerChar;
     int x, y;
-    boolean boardIsFull;
+
     String userInput;
     ArrayList<Character> markCheck = new ArrayList<>();
 
@@ -16,7 +16,6 @@ public class ticTacToe extends Main{
         board = new char[3][3];
         playerChar = 'x';
         emptyBoardTable();
-        boardIsFull = false;
     }
 
     public void emptyBoardTable() {
@@ -68,21 +67,15 @@ public class ticTacToe extends Main{
 
     public boolean boardFull() {
 
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
-
-                    boardIsFull = false;
-                    return boardIsFull;
-
+                    return false ;
                 }
             }
-
-            boardIsFull = true;
         }
 
-        return  boardIsFull;
+        return  true;
     }
 
 
