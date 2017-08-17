@@ -10,7 +10,7 @@ public class Main {
         boolean isFull = false;
         boolean isWin = false;
 
-        while (!isFull || !isWin) {
+        while (isFull != true && isWin != true) {
             tic.markCheck.clear();
             tic.printBoard();
             System.out.println(tic.boardFull());
