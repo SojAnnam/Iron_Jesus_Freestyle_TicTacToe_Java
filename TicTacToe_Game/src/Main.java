@@ -10,11 +10,12 @@ public class Main {
 
         boolean isFull = false;
         boolean isWin = false;
-        String again = "y";
+        boolean isNewGame = true;
 
-        while (again == "y") {
-
+        while (isNewGame == true) {
+            tic.emptyBoardTable();
             System.out.println("Welcome to TicTacToe! Let's start the game!");
+
 
             while (isFull != true && isWin != true) {
 
@@ -24,7 +25,7 @@ public class Main {
                 tic.placeChar(returnList);
                 isFull = tic.boardFull();
                 isWin = tic.winCheck();
-                System.out.println(again);
+                System.out.println(isNewGame);
 
 
             }
@@ -34,11 +35,11 @@ public class Main {
                 tic.printBoard();
                 if (tic.playerChar == 'o') {
                     System.out.println("Player One won.");
-                    again = tic.nextGame();
+                    isNewGame = tic.nextGame();
 
                 } else if (tic.playerChar == 'x') {
                     System.out.println("Player Two won.");
-                    again = tic.nextGame();
+                    isNewGame = tic.nextGame();
 
                 }
 
@@ -48,7 +49,7 @@ public class Main {
             if (tic.boardIsFull == true) {
                 tic.printBoard();
                 System.out.println("The match ends in a draw!");
-                again = tic.nextGame();
+                isNewGame = tic.nextGame();
             }
         }
     }
