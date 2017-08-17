@@ -7,11 +7,19 @@ public class Main {
 
         tictactoe tic = new tictactoe();
 
-        tic.printBoard();
-        System.out.println(tic.boardFull());
-        List returnList = tic.userInputs();
-        tic.placeChar(returnList);
-        tic.printBoard();
+        while (tic.boardIsFull != true) {
+            tic.printBoard();
+            System.out.println(tic.boardFull());
+            List returnList = tic.userInputs();
+            tic.placeChar(returnList);
+            System.out.println(tic.playerChar);
+            tic.boardFull();
+        }
+
+        if (tic.boardIsFull = true) {
+
+            System.out.println("The match ends in a draw!");
+        }
 
     }
 }

@@ -6,14 +6,16 @@ import java.util.ArrayList;
 
 public class tictactoe extends Main{
 
-    private char[][] board;
-    private char playerChar;
+    public char[][] board;
+    public char playerChar;
     int x, y;
+    boolean boardIsFull;
 
     public tictactoe() {
         board = new char[3][3];
         playerChar = 'x';
         emptyBoardTable();
+        boardIsFull = false;
     }
 
     public void emptyBoardTable() {
@@ -46,13 +48,17 @@ public class tictactoe extends Main{
     }
 
     public boolean boardFull() {
-        boolean boardIsFull = true;
+
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
+
                     boardIsFull = false;
 
+                } else {
+
+                    boardIsFull = true;
                 }
             }
 
@@ -106,22 +112,36 @@ public class tictactoe extends Main{
     }
 
 
-
     public void  placeChar(List<Integer> returnList) {
 
         try {
             if (board[returnList.get(0)-1][returnList.get(1)-1] == ' ') {
                 board[returnList.get(0)-1][returnList.get(1)-1] = playerChar;
+
+                if (playerChar == 'x') {
+
+                    playerChar = 'o';
+
+                } else {
+
+                    playerChar = 'x';
+
+
+                    }
+
+                userInputs();
+
+                }
+
             }
-        }
 
         catch (ArrayIndexOutOfBoundsException ei) {
 
                 userInputs();
             }
-        }
 
     }
+}
 
 
 
