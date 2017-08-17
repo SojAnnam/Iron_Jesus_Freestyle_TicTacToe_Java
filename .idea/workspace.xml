@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="763fac11-edae-43d5-8a0b-27b5e526a9a8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicTacToe_Game/src/tictactoe.java" afterPath="$PROJECT_DIR$/TicTacToe_Game/src/tictactoe.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,8 +33,8 @@
       <file leaf-file-name="tictactoe.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TicTacToe_Game/src/tictactoe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -279,7 +278,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28822000" />
+    <option name="totallyTimeSpent" value="28913000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="161" y="24" width="1303" height="780" extended-state="6" />
@@ -763,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TicTacToe_Game/src/tictactoe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

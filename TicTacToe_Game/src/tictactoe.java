@@ -58,12 +58,15 @@ public class tictactoe extends Main{
                     return boardIsFull;
 
                 }
-            } boardIsFull = true;
+            }
 
-
+            boardIsFull = true;
         }
+
         return  boardIsFull;
     }
+
+
     public ArrayList<Integer> userInputs() {
 
         boolean corr = false;
