@@ -8,11 +8,15 @@ public class Main {
 
         ticTacToe tic = new ticTacToe();
 
-        boolean isFull = false;
-        boolean isWin = false;
+
         boolean isNewGame = true;
 
         while (isNewGame == true) {
+
+            boolean isFull = false;
+            boolean isWin = false;
+            tic.playerChar = 'x';
+
             tic.emptyBoardTable();
             System.out.println("Welcome to TicTacToe! Let's start the game!");
 
@@ -25,7 +29,6 @@ public class Main {
                 tic.placeChar(returnList);
                 isFull = tic.boardFull();
                 isWin = tic.winCheck();
-                System.out.println(isNewGame);
 
 
             }

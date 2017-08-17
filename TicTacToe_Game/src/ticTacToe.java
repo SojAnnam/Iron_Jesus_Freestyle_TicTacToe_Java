@@ -33,8 +33,9 @@ public class ticTacToe extends Main{
         System.out.println("Would you like to play another game (y or n)?");
         Scanner inputString = new Scanner(System.in);
         userInput = inputString.next();
-        System.out.println(userInput);
-        if (userInput.toLowerCase() == "n") {
+
+        if (userInput.toLowerCase() != "y") {
+
             System.out.println("Thank you very much for playing!");
             return false;
 
