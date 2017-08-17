@@ -13,6 +13,7 @@ public class Main {
             System.out.flush();
             boolean isFull = false;
             boolean isWin = false;
+            tic.playerChar = 'x';
             tic.emptyBoardTable();
             System.out.println("Welcome to TicTacToe! Let's start the game!");
 
