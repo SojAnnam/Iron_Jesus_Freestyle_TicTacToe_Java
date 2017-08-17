@@ -89,18 +89,9 @@ public class tictactoe extends Main{
                     corr = false;
                 }
 
-                    /*else {
 
-                        System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
-                        corr = false;
-                    } */
             }
-            /*catch (InputMismatchException ime) {
 
-                System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
-                corr = false;
-
-            }*/
             catch (Exception e) {
 
                 System.out.println("Please provide a NUMBER between 1 and 3!");
@@ -114,20 +105,6 @@ public class tictactoe extends Main{
         return userInputs;
     }
 
-    /*public int[] userInput() {
-        try {
-            System.out.println("Please, provide the x coordinate: ");
-            Scanner userInputx = new Scanner(System.in);
-            int y = userInputx.nextInt();
-
-            if (y - 1 >= 0 && y - 1 <= 2) {
-
-                return new int[]{y - 1};
-            }
-        } catch (){
-
-        }
-    }*/
 
 
     public void  placeChar(List<Integer> returnList) {
@@ -144,17 +121,7 @@ public class tictactoe extends Main{
             }
         }
 
-
-        //return board[x][y];
-
     }
-
-    /*
-    public boolean playerTurn(int x, int y) {
-        if (x> 0)
-
-    }
-    */
 
 
 
