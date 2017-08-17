@@ -55,12 +55,10 @@ public class tictactoe extends Main{
                 if (board[i][j] == ' ') {
 
                     boardIsFull = false;
+                    return boardIsFull;
 
-                } else {
-
-                    boardIsFull = true;
                 }
-            }
+            } boardIsFull = true;
 
 
         }
