@@ -14,6 +14,7 @@ public class Main {
 
         while (again == "y") {
 
+            tic.getNames();
             System.out.println("Welcome to TicTacToe! Let's start the game!");
 
             while (isFull != true && isWin != true) {
@@ -33,11 +34,11 @@ public class Main {
 
                 tic.printBoard();
                 if (tic.playerChar == 'o') {
-                    System.out.println("Player One won.");
+                    System.out.println(tic.names.get(0) + " won.");
                     again = tic.nextGame();
 
                 } else if (tic.playerChar == 'x') {
-                    System.out.println("Player Two won.");
+                    System.out.println(tic.names.get(1) + " won.");
                     again = tic.nextGame();
 
                 }
