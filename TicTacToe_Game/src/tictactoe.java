@@ -85,7 +85,7 @@ public class tictactoe extends Main{
                 }
                 else{
 
-                    System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
+                    System.out.println("Please provide a NUMBER between 1 and 3!");
                     corr = false;
                 }
 
@@ -103,7 +103,7 @@ public class tictactoe extends Main{
             }*/
             catch (Exception e) {
 
-                System.out.println("Kurwa hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
+                System.out.println("Please provide a NUMBER between 1 and 3!");
                 corr = false;
 
             }
