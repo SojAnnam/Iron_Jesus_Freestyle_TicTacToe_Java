@@ -1,23 +1,21 @@
-import java.lang.reflect.Array;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 
-public class ticTacToe extends Main {
+public class ticTacToe extends Main{
 
-    private char[][] board;
-    private char playerChar;
+    public char[][] board;
+    public char playerChar;
     int x, y;
-    ArrayList<Character> diagonalCheck = new ArrayList<>();
-    char first = diagonalCheck.get(0);
-
+    boolean boardIsFull;
 
     public ticTacToe() {
         board = new char[3][3];
         playerChar = 'x';
         emptyBoardTable();
+        boardIsFull = false;
     }
 
     public void emptyBoardTable() {
@@ -50,20 +48,24 @@ public class ticTacToe extends Main {
     }
 
     public boolean boardFull() {
-        boolean boardIsFull = true;
+
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
+
                     boardIsFull = false;
+                    return boardIsFull;
 
                 }
             }
 
-
+            boardIsFull = true;
         }
-        return boardIsFull;
+
+        return  boardIsFull;
     }
+
 
     public ArrayList<Integer> userInputs() {
 
@@ -80,22 +82,26 @@ public class ticTacToe extends Main {
             try {
 
                 userInputX = inputX.nextInt();
-                userInputY = inputX.nextInt();
+                userInputY = inputY.nextInt();
 
-                if (userInputX - 1 >= 0 && userInputX - 1 <= 2 && userInputY - 1 >= 0 && userInputY - 1 <= 2) {
+                if (userInputX- 1 >= 0 && userInputX - 1 <= 2 && userInputY- 1 >= 0 && userInputY - 1 <= 2) {
 
                     userInputs.add(userInputX);
                     userInputs.add(userInputY);
                     corr = true;
-                } else {
+                }
+                else{
 
-                    System.out.println("Kurva hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
+                    System.out.println("Please provide two NUMBERS between 1 and 3!");
                     corr = false;
                 }
 
-            } catch (Exception e) {
 
-                System.out.println("Kurva hülye vagy, hogy két kibaszott koordinátát nem tudsz megadni bazdmeg!4!!4NÉGY(ANYÁD)");
+            }
+
+            catch (Exception e) {
+
+                System.out.println("Please provide two NUMBERS between 1 and 3!");
                 corr = false;
 
             }
@@ -106,58 +112,39 @@ public class ticTacToe extends Main {
         return userInputs;
     }
 
-    public void placeChar(List<Integer> returnList) {
+
+    public char  placeChar(List<Integer> returnList) {
 
         try {
             if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
                 board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
             }
-        } catch (ArrayIndexOutOfBoundsException ei) {
+
+        }
+
+        catch (ArrayIndexOutOfBoundsException ei) {
 
             userInputs();
         }
-    }
 
-    public char winCheck() {
-        char notWin = 'a';
+        if (playerChar == 'x') {
 
-        for (char[] row : board) {
-            if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
-                return row[0];
-            }
-        }
+            playerChar = 'o';
 
-        for (int i = 0; i < 3; ) {
-            for (int j = 0; j < 3; j++) {
-                if (board[i][j] != ' ' && board[i][j] == board[i][j] && board[i][j] == board[i][j]) {
-                    return board[i][j];
+        } else {
+
+            playerChar = 'x';
+
+
                 }
-            }
-            i++;
-        }
 
-        for (int i = 0; i < 3; i++) {
-            diagonalCheck.add(board[i][i]);
-        }
 
-        for (int i = 1; i < 3; i++) {
-            if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
-                return first;
-            }
-        }
-        for (int i = 0; i < 3; i++) {
-            for (int j = 2; j >= 0; j--) {
-                diagonalCheck.add(board[i][i]);
-            }
-        }
-        for (int i = 1; i < 3; i++) {
-            if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
-                return first;
-            }
+        return playerChar;
 
-        }
-        return notWin;
     }
+
+
+
 }
 
 
