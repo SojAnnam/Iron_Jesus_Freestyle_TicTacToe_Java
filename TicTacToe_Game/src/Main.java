@@ -8,7 +8,7 @@ public class Main {
         ticTacToe tic = new ticTacToe();
 
         while (tic.game != true) {
-            tic.diagonalCheck.clear();
+            tic.markCheck.clear();
             tic.printBoard();
             System.out.println(tic.boardFull());
             System.out.println(tic.winCheck());
@@ -18,12 +18,12 @@ public class Main {
             tic.boardFull();
             if (tic.winCheck() == true) {
                 tic.printBoard();
-                if (tic.playerChar == 'x') {
+                if (tic.playerChar == 'o') {
                     System.out.println("Player One won.");
-                    tic.game = false;
-                } else if (tic.playerChar == 'o') {
+                    System.exit(0);
+                } else if (tic.playerChar == 'x') {
                     System.out.println("Player Two won.");
-                    tic.game = false;
+                    System.exit(0);
                 }
                 System.out.println(tic.winCheck());
             }

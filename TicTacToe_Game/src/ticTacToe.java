@@ -10,7 +10,7 @@ public class ticTacToe extends Main {
     int x, y;
     boolean boardIsFull;
     boolean game;
-    ArrayList<Character> diagonalCheck = new ArrayList<>();
+    public ArrayList<Character> markCheck = new ArrayList<>();
 
     public ticTacToe() {
         board = new char[3][3];
@@ -140,49 +140,39 @@ public class ticTacToe extends Main {
     }
 
     public boolean winCheck() {
+
+        //checks the rows
+
         for (char[] row : board) {
             if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
-                System.out.println("ok");
+                System.out.println("sor");
                 return true;
             }
         }
 
+        //adds all nums into an array, and checks diagonals and columns
+
         for (int i = 0; i < 3; i++) {
-            if (board[0][i] == board[1][i] && board[2][i] == board[i][2]) {
-                if (board[0][i] != ' ') {
-                    System.out.println("ok1");
-                    return true;
-                }
+            for (int j = 0; j < 3; j++) {
+                markCheck.add(board[i][j]);
             }
         }
 
-
-            for (int i = 0; i < 3; i++) {
-                diagonalCheck.add(board[i][i]);
+        for (int i = 0; i < 3;) {
+            if (markCheck.get(i) == markCheck.get(i+3) && markCheck.get(i+3) == markCheck.get(i+6) && markCheck.get(i) != ' ') {
+                return true;
             }
+        }
 
+        if (markCheck.get(0) == markCheck.get(4) && markCheck.get(8) == markCheck.get(4) && markCheck.get(0) != ' ') {
+            return true;
+        }
 
-            char first = diagonalCheck.get(0);
+        if (markCheck.get(2) == markCheck.get(4) && markCheck.get(6) == markCheck.get(4) && markCheck.get(0) != ' ') {
+            return true;
+        }
 
-            for (int i = 1; i < 3; i++) {
-                if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
-                    System.out.println("ok2");
-                    return true;
-                }
-            }
-            for (int i = 0; i < 3; i++) {
-                for (int j = 2; j >= 0; j--) {
-                    diagonalCheck.add(board[i][i]);
-                }
-            }
-            for (int i = 1; i < 3; i++) {
-                if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
-                    System.out.println("ok3");
-                    return true;
-                }
-
-            }
-            return false;
+        return false;
 
     }
 }
