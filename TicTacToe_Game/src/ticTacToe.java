@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -10,6 +9,7 @@ public class ticTacToe extends Main{
     public char playerChar;
     int x, y;
     boolean boardIsFull;
+    ArrayList<Character> diagonalCheck = new ArrayList<>();
 
     public ticTacToe() {
         board = new char[3][3];
@@ -142,9 +142,49 @@ public class ticTacToe extends Main{
         return playerChar;
 
     }
+    public char winCheck() {
+        char notWin = 'a';
+
+        for (char[] row : board) {
+            if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
+                return row[0];
+            }
+        }
+
+        for (int i = 0; i < 3; ) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] != ' ' && board[i][j] == board[i][j] && board[i][j] == board[i][j]) {
+                    return board[i][j];
+                }
+            }
+            i++;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            diagonalCheck.add(board[i][i]);
+        }
 
 
+        char first = diagonalCheck.get(0);
 
+        for (int i = 1; i < 3; i++) {
+            if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
+                return first;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 2; j >= 0; j--) {
+                diagonalCheck.add(board[i][i]);
+            }
+        }
+        for (int i = 1; i < 3; i++) {
+            if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
+                return first;
+            }
+
+        }
+        return notWin;
+    }
 }
 
 
