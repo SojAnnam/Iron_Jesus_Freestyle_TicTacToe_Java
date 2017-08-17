@@ -9,7 +9,7 @@ public class ticTacToe extends Main{
     public char playerChar;
     int x, y;
     boolean boardIsFull;
-    ArrayList<Character> diagonalCheck = new ArrayList<>();
+    ArrayList<Character> markCheck = new ArrayList<>();
 
     public ticTacToe() {
         board = new char[3][3];
@@ -142,50 +142,46 @@ public class ticTacToe extends Main{
         return playerChar;
 
     }
-    public char winCheck() {
-        char notWin = 'a';
+    public boolean winCheck() {
+        //checks the rows
 
         for (char[] row : board) {
             if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
-                return row[0];
+                System.out.println("sor");
+                return true;
             }
         }
 
-        for (int i = 0; i < 3; ) {
+        //adds all nums into an array, and checks diagonals and columns
+
+        for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (board[i][j] != ' ' && board[i][j] == board[i][j] && board[i][j] == board[i][j]) {
-                    return board[i][j];
-                }
+                markCheck.add(board[i][j]);
             }
-            i++;
         }
 
         for (int i = 0; i < 3; i++) {
-            diagonalCheck.add(board[i][i]);
-        }
-
-
-        char first = diagonalCheck.get(0);
-
-        for (int i = 1; i < 3; i++) {
-            if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
-                return first;
+            if (markCheck.get(i) == markCheck.get(i+3) && markCheck.get(i+3) == markCheck.get(i+6) && markCheck.get(i) != ' ') {
+                System.out.println("oszlop");
+                return true;
             }
         }
-        for (int i = 0; i < 3; i++) {
-            for (int j = 2; j >= 0; j--) {
-                diagonalCheck.add(board[i][i]);
-            }
-        }
-        for (int i = 1; i < 3; i++) {
-            if (diagonalCheck.get(i) != ' ' && diagonalCheck.get(i) == first) {
-                return first;
-            }
 
+        if (markCheck.get(0) == markCheck.get(4) && markCheck.get(8) == markCheck.get(4) && markCheck.get(0) != ' ') {
+            System.out.println("diag1");
+            return true;
         }
-        return notWin;
+
+        if  (markCheck.get(2) == markCheck.get(4) && markCheck.get(6) == markCheck.get(4) && markCheck.get(2) != ' ') {
+            System.out.println("diag2");
+            System.out.println(markCheck);
+            return true;
+        }
+
+        return false;
     }
 }
+
 
 
 
