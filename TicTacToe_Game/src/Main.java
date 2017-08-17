@@ -7,8 +7,8 @@ public class Main {
 
         ticTacToe tic = new ticTacToe();
 
-        while (tic.boardIsFull != true && tic.winCheck() == 'a') {
-
+        while (tic.boardIsFull != true) {
+            tic.diagonalCheck.clear();
             tic.printBoard();
             System.out.println(tic.boardFull());
             System.out.println(tic.winCheck());
