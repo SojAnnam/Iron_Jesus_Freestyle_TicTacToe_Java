@@ -9,6 +9,7 @@ public class ticTacToe extends Main{
     public char playerChar;
     int x, y;
     boolean boardIsFull;
+    String userInput;
     ArrayList<Character> markCheck = new ArrayList<>();
 
     public ticTacToe() {
@@ -25,6 +26,24 @@ public class ticTacToe extends Main{
 
             }
         }
+    }
+
+    public String nextGame() {
+
+        System.out.println("Would you like to play another game (y or n)?");
+        Scanner inputString = new Scanner(System.in);
+        userInput = inputString.next();
+        System.out.println(userInput);
+        if (userInput.toLowerCase() == "n") {
+            System.out.println("Thank you very much for playing!");
+            return userInput.toLowerCase();
+
+        } else {
+
+           return userInput.toLowerCase();
+
+        }
+
     }
 
     public void printBoard() {
