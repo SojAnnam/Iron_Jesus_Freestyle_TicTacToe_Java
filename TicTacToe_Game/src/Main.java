@@ -8,6 +8,7 @@ public class Main {
         ticTacToe tic = new ticTacToe();
 
         while (tic.boardIsFull != true && tic.winCheck() == 'a') {
+
             tic.printBoard();
             System.out.println(tic.boardFull());
             System.out.println(tic.winCheck());
@@ -19,7 +20,7 @@ public class Main {
 
         }
 
-        if (tic.boardIsFull = true && tic.winCheck() != 'a') {
+        if (tic.winCheck() != 'a') {
 
 
             tic.printBoard();
@@ -29,8 +30,14 @@ public class Main {
                 System.out.println("Player Two won.");
             }
             System.out.println(tic.winCheck());
-            System.out.println("The match ends in a draw!");
 
+
+        }
+
+        if (tic.boardIsFull = true && tic.winCheck() == 'a') {
+
+            tic.printBoard();
+            System.out.println("The match ends in a draw!");
         }
     }
 }
