@@ -19,7 +19,7 @@ public class ticTacToe extends Main{
         playerChar = 'x';
         emptyBoardTable();
     }
-
+    //init new empty board
     public void emptyBoardTable() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -50,7 +50,7 @@ public class ticTacToe extends Main{
 
         }
     }
-
+    //Players can enter their names at the beginning of the game
     public void getNames() {
         System.out.println("Player One, please add your name:");
         Scanner inputString = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class ticTacToe extends Main{
         names.add(name2);
     }
 
-
+    // check the free fields on the board
     public boolean boardFull() {
 
         for (int i = 0; i < 3; i++) {
@@ -77,7 +77,7 @@ public class ticTacToe extends Main{
         return  true;
     }
 
-
+    //Ask for coordinates and check the validity
     public ArrayList<Integer> userInputs() {
 
         boolean corr = false;
@@ -123,21 +123,21 @@ public class ticTacToe extends Main{
         return userInputs;
     }
 
-
+    //based on coordinates fill the fields if its free and change the player character
     public char  placeChar(List<Integer> returnList) {
 
         try {
             if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
                 board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
+
                 if (playerChar == 'x') {
-
                     playerChar = 'o';
-
-                } else {
-
+                }else if(playerChar == 'o') {
                     playerChar = 'x';
-
-
+                } else if (playerChar == '6'){
+                    playerChar = '7';
+                } else if (playerChar == '7'){
+                    playerChar = '6';
                 }
             }
 
@@ -152,9 +152,11 @@ public class ticTacToe extends Main{
         return playerChar;
 
     }
-    public boolean winCheck() {
-        //checks the rows
 
+    //check the all of the win patterns
+    public boolean winCheck() {
+
+        //checks the rows
         for (char[] row : board) {
             if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
                 return true;
@@ -185,7 +187,7 @@ public class ticTacToe extends Main{
 
         return false;
     }
-
+    //Ask for the new game, if players enter y -->new game start, if players enter n --> stop the game
     public boolean nextGame() {
 
         System.out.println("Would you like to play another game (y or n)?");
@@ -199,6 +201,22 @@ public class ticTacToe extends Main{
         } else {
 
             return true;
+
+        }
+
+    }
+    public void gameChange(){
+        System.out.println("[1] Simple game");
+        System.out.println("[2] Hardcore game");
+        Scanner inputString = new Scanner(System.in);
+        userInput = inputString.next().toLowerCase();
+        System.out.println(userInput);
+        if (userInput.equals("1")) {
+            playerChar = 'x';
+
+        } else {
+
+            playerChar = '6';
 
         }
 
