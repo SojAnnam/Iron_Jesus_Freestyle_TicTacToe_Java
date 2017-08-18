@@ -129,15 +129,15 @@ public class ticTacToe extends Main{
         try {
             if (board[returnList.get(0) - 1][returnList.get(1) - 1] == ' ') {
                 board[returnList.get(0) - 1][returnList.get(1) - 1] = playerChar;
+
                 if (playerChar == 'x') {
-
                     playerChar = 'o';
-
-                } else {
-
+                }else if(playerChar == 'o') {
                     playerChar = 'x';
-
-
+                } else if (playerChar == '6'){
+                    playerChar = '7';
+                } else if (playerChar == '7'){
+                    playerChar = '6';
                 }
             }
 
@@ -201,6 +201,22 @@ public class ticTacToe extends Main{
         } else {
 
             return true;
+
+        }
+
+    }
+    public void gameChange(){
+        System.out.println("[1] Simple game");
+        System.out.println("[2] Hardcore game");
+        Scanner inputString = new Scanner(System.in);
+        userInput = inputString.next().toLowerCase();
+        System.out.println(userInput);
+        if (userInput.equals("1")) {
+            playerChar = 'x';
+
+        } else {
+
+            playerChar = '6';
 
         }
 

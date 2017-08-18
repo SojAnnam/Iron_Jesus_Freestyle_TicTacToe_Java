@@ -15,6 +15,7 @@ public class Main {
             boolean isWin = false;
             tic.playerChar = 'x';
             tic.emptyBoardTable();
+            tic.gameChange();
             tic.getNames();
             System.out.println("Welcome to TicTacToe! Let's start the game!");
 
@@ -34,12 +35,12 @@ public class Main {
             if (isWin) {
 
                 tic.printBoard();
-                if (tic.playerChar == 'o') {
+                if (tic.playerChar == 'o' || tic.playerChar =='7') {
                     System.out.println(tic.names.get(0) + " won.");
                     tic.emptyBoardTable();
                     isNewGame = tic.nextGame();
 
-                } else if (tic.playerChar == 'x') {
+                } else if (tic.playerChar == 'x' || tic.playerChar == '6') {
                     System.out.println(tic.names.get(1) + " won.");
                     tic.emptyBoardTable();
                     isNewGame = tic.nextGame();
